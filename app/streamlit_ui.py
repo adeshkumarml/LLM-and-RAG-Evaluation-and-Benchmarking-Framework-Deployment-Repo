@@ -149,15 +149,14 @@ if run_eval:
             retcol2.metric("Recall@K", f"{sample['recall_at_k']:.2f}")
             retcol3.metric("Mean Reciprocal Rank", f"{sample['mrr']}")
 
-        st.divider()
+    st.divider()
 
-        results_json = json.dumps(results, indent = 4, ensure_ascii = False)
-        st.download_button(
-            label = "Download Full Evaluation Report Here",
-            data = results_json,
-            file_name = "evaluation_report.json",
-            mime = "application/json",
-            use_container_width =True
-        )
-
+    results_json = json.dumps(results, indent = 4, ensure_ascii = False)
+    st.download_button(
+        label = "Download Full Evaluation Report Here",
+        data = results_json,
+        file_name = "evaluation_report.json",
+        mime = "application/json",
+        use_container_width =True
+    )
         
