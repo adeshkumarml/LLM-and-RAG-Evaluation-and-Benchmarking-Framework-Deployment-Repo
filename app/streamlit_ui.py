@@ -49,7 +49,7 @@ if run_eval:
     with st.spinner("Please Wait... Running Evaluation..."):
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/evaluate", 
+                "https://llm-and-rag-evaluation-and-benchmarking.onrender.com/evaluate", 
                 files = {
                     "corpus_file": corpus_file, 
                     "dataset_file": dataset_file,
