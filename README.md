@@ -4,7 +4,8 @@ A RAG evalutaion and benchmarking framework for comparing baseline large languag
 ## Links and Demo
 Access the system *(v1)* from here: https://llmragbenchmarking.streamlit.app/<br>
 Access the API docs from here: https://llm-and-rag-evaluation-and-benchmarking.onrender.com/docs<br>
-[Demo Video Here]
+[Demo Video Here](https://drive.google.com/file/d/1xmhZjN7Qo5Hamiqk1uQ3dCDLiDDSQGEZ/view?usp=sharing)<br> 
+[Sample Test Data Here](https://drive.google.com/drive/folders/1IUC7h1_wBcBbfuaIegd0vabCrUbBgGIU?usp=sharing)
 
 ## Overview
 RAG systems are commonly used to improve LLM responses by grounding them in external context. However, evaluating whether retrieval actually improves response quality remains a challenging problem.<br>
@@ -30,25 +31,24 @@ The following have been used:<br>
 - Deployment: Render, Streamlit Cloud<br>
 
 ## General Architecture
-User uploads corpus(.txt) and dataset(.json) ➡️ Streamlit UI ➡️ FastAPI ➡️ Evaluator ➡️ Retrieval and generation ➡️ LLM judge and metrics<br>
-➡️ .json results and dashboard
+User uploads corpus(.txt) and dataset(.json) ➡️ Streamlit UI ➡️ FastAPI ➡️ Evaluator ➡️ Retrieval and generation ➡️ LLM judge and metrics ➡️ .json results and dashboard
 
 ## Project Structure
 
 ```text
 Project Root
-├── app/                # Streamlit UI and FastAPI backend
-├── config/             # Configuration files
-├── src/                # Retrieval, generation, evaluation, and orchestration pipelines
-├── requirements.txt    # Project dependencies
-├── runtime.txt         # Python runtime version
+├── app/                Streamlit UI and FastAPI backend
+├── config/             Configuration files
+├── src/                Retrieval, generation, evaluation, and orchestration pipelines
+├── requirements.txt    Project dependencies
+├── runtime.txt         Python runtime version
 └── README.md
 ```
 ## Deployment Notes & Known Issues
 
 - The current framework is designed specifically for QA tasks only.
 - Initial requests may experience cold-start latency due to transformer model loading on Render's free-tier.
-- Evaluation datasets' maximum sample size has been limited to 10 to maintain manageable inference latency and API usage.. 
+- Evaluation datasets' maximum sample size has been limited to 10 to maintain manageable inference latency and API usage. 
 - Larger datasets  may require longer processing times because generation and evaluation are currently performed sequentially.
 - Retrieval metrics based on lexical overlap may report semantically correct retrievals when phrasing differs from the actual answers.
 - Uploaded datasets are expected to follow the exact JSON schema format shown in Streamlit UI<br>
